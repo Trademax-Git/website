@@ -7,6 +7,7 @@
   >
     <slot />
   </NuxtLink>
+
   <button v-else
     @click="!disabled && $emit('clicked')"
     :class="buttonClasses"
@@ -32,47 +33,64 @@ export default {
     url: {
       type: Object,
       default: null
+    },
+
+    // ✅ NEW PROP
+    color: {
+      type: String,
+      default: null // null = use default theme colors
     }
   },
 
   computed: {
     baseClasses() {
       return [
-        // Layout
         this.flexdisplay ? 'flex w-full text-center gap-3 items-center' : 'w-fit text-left'
       ].filter(Boolean).join(' ')
+    },
+
+    // ✅ Build color classes when color prop is given
+    colorClasses() {
+      if (!this.color) return ''
+      return `text-${this.color} border-${this.color}`
     },
 
     buttonClasses() {
       if (this.disabled) {
         return [
           this.baseClasses,
-          // Disabled state - no transitions, no hover effects
           'text-accent-400 border-accent-200 cursor-not-allowed'
-        ].filter(Boolean).join(' ')
+        ].join(' ')
       }
 
       return [
         this.baseClasses,
-        // Normal state with hover effects
-        'text-secondary border-secondary hover:text-primary hover:border-primary focus:border-primary focus:text-primary active:text-secondary'
-      ].filter(Boolean).join(' ')
+
+        // ✅ Use custom color if passed, else default
+        this.color ? this.colorClasses : 'text-secondary border-secondary',
+
+        // Hover effects remain
+        'hover:text-primary hover:border-primary focus:border-primary focus:text-primary active:text-secondary'
+      ].join(' ')
     },
 
     linkClasses() {
       if (this.disabled) {
         return [
           this.baseClasses,
-          // Disabled state - no transitions, no hover effects
           'text-accent-400 border-accent-200 cursor-not-allowed pointer-events-none'
-        ].filter(Boolean).join(' ')
+        ].join(' ')
       }
 
       return [
         this.baseClasses,
-        // Normal state with hover effects
-        'text-secondary border-secondary hover:text-primary hover:border-primary focus:border-primary focus:text-primary active:text-secondary'
-      ].filter(Boolean).join(' ')
+
+        // ✅ Use custom color if passed, else default
+        this.color ? this.colorClasses : 'text-secondary border-secondary',
+
+        // Hover effects remain
+        'hover:text-primary hover:border-primary focus:border-primary focus:text-primary active:text-secondary'
+      ].join(' ')
     }
   }
 }
