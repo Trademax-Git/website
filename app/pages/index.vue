@@ -1,6 +1,6 @@
 <template>
   <UiTypographyH1 color="secondary" class="text-center mt-28 mb-1">United States</UiTypographyH1>
-  <header class="text-center mt-0 pb-10 pt-1" :style="headerStyle">
+  <header class="text-center mt-0 pb-10 pt-1">
     <Container :addTopBottomPadding="false">
       <UiTypographyH1 color="white">Trademark Registration</UiTypographyH1>
       <UiTypographyP color="white" class="max-w-2xl mx-auto">Secure your name, logo, or slogan with fast, affordable trademark registration backed by expert legal guidance.</UiTypographyP>
@@ -23,6 +23,40 @@
       <UiIconsArrow class="w-20 text-secondary mx-auto mt-32 animate-bounce" />
     </Container>
   </header>
+
+  <Container class="grid lg:grid-cols-2 gap-12 lg:gap-28 items-start">
+    <div>
+      <UiTypographyP class="flex items-center gap-2 mb-2">
+        <span class="h-0.5 w-10 bg-primary"></span>
+        What We Do
+      </UiTypographyP>
+      <UiTypographyH2 class="" color="primary">
+        Expert Trademark Protection Backed by Trusted Legal Professionals
+      </UiTypographyH2>
+      <UiTypographyP class="mt-4">
+        From comprehensive searches to strategic filing and rigorous defense, {{ projectName }} provides the full spectrum of trademark services designed to secure and strengthen your brand across the U.S.
+      </UiTypographyP>
+    </div>
+
+    <div class=" grid md:grid-cols-2 gap-12">
+      <div>
+        <img src="/images/doc_search.svg" class="w-14" />
+        <UiTypographyH3 class="mt-2">Trademark Search & Clearance</UiTypographyH3>
+      </div>
+      <div>
+        <img src="/images/doc_stamp.svg" class="w-14" />
+        <UiTypographyH3 class="mt-2">USPTO Trademark Filing</UiTypographyH3>
+      </div>
+      <div>
+        <img src="/images/response.svg" class="w-14" />
+        <UiTypographyH3 class="mt-2">Office Action Responses</UiTypographyH3>
+      </div>
+      <div>
+        <img src="/images/renewal.svg" class="w-14" />
+        <UiTypographyH3 class="mt-2">Trademark Renewals</UiTypographyH3>
+      </div>
+    </div>
+  </Container>
 </template>
 
 <script setup>
