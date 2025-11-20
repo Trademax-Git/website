@@ -1,6 +1,6 @@
 <template>
   <nav class="fixed z-100 w-full top-0 left-0 border-b border-accent-200 bg-white">
-    <div class="max-w-7xl 2xl:max-w-8xl mx-auto px-4 sm:px-6 flex items-center justify-between py-4">
+    <Container :addTopBottomPadding="false" class="flex items-center justify-between py-4">
       <!-- Logo -->
       <NavigationLogo @logoClicked="handleLogoClick" />
 
@@ -20,7 +20,7 @@
           <UiButtonsTertiary style="font-size: 1.5rem;">FAQs</UiButtonsTertiary>
           <UiButtonsPrimary>Register my Trademark</UiButtonsPrimary>
        </div>
-    </div>
+    </Container>
   </nav>
 </template>
 
