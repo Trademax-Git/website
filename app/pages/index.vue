@@ -57,6 +57,155 @@
       </div>
     </div>
   </Container>
+
+  <Container class="text-center">
+      <UiTypographyP class="flex items-center justify-center gap-2 mb-2">
+        <span class="h-0.5 w-10 bg-primary"></span>
+        How it works
+      </UiTypographyP>    
+      <UiTypographyH2 class="max-w-2xl mx-auto">
+        A Streamlined, Attorney-Managed Trademark Process
+      </UiTypographyH2>
+      <UiTypographyP>Professional oversight, clear communication, and fast turnaround — trademark registration made effortless.</UiTypographyP>
+
+      <div class="grid lg:grid-cols-3 gap-8 mt-16">
+        <div class="border border-secondary p-6">
+          <img src="/images/form-upload.svg" class="w-14 mb-6 mx-auto" alt="Form Submit">
+          <UiTypographyH3>Submit Your Details</UiTypographyH3>
+          <UiTypographyP>Share your brand name, logo, and essential business information using our secure online form.
+          Clear, simple, and guided from the start.</UiTypographyP>
+        </div>
+        <div class="border border-secondary p-6">
+          <img src="/images/form-filing.svg" class="w-14 mb-6 mx-auto" alt="Form filing">
+          <UiTypographyH3>We Handle the Filing</UiTypographyH3>
+          <UiTypographyP>SOur legal team conducts a professional trademark search, prepares your application, and files it with the USPTO on your behalf — with precision and compliance built in.
+          Nothing for you to figure out. We manage everything.</UiTypographyP>
+        </div>
+        <div class="border border-secondary p-6">
+          <img src="/images/protection.svg" class="w-14 mb-6 mx-auto" alt="Shield / Protection">
+          <UiTypographyH3>Get Official Protection</UiTypographyH3>
+          <UiTypographyP>Once approved by the USPTO, your trademark is officially registered, giving you exclusive nationwide rights and long-term brand protection.Your identity secured — professionally and efficiently.</UiTypographyP>
+        </div>
+      </div>
+
+      <UiButtonsPrimary class="mx-auto mt-16">Register My Trademark</UiButtonsPrimary>
+  </Container>
+
+  <section class="bg-accent-100 bg-opacity-40">
+    <Container>
+      <UiTypographyP class="flex items-center justify-center gap-2 mb-2">
+        <span class="h-0.5 w-10 bg-primary"></span>
+        Our Pricing
+      </UiTypographyP>   
+      <UiTypographyH2 class="text-center mx-auto">Simple, Transparent Pricing</UiTypographyH2> 
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 mt-16 gap-4">
+
+        <div class="border border-accent-300 hover:border-secondary p-6 bg-white">
+          <UiTypographyP class="uppercase font-bold"><strong>Basic</strong></UiTypographyP>
+          <UiTypographyP small_text class="">Best for startups needing protection in one trademark class with simple requirements.</UiTypographyP>
+          <UiTypographyH2 color="secondary" class="mt-4">$45</UiTypographyH2>
+          <UiTypographyP>+ filing fee ($350/class)</UiTypographyP>
+
+          <ul class="list-inside list-disc h-44 overflow-y-scroll mt-6">
+            <li>Case Review</li>
+            <li>Case Filing</li>
+            <li>Basic Search</li>
+            <li>State E-Filing</li>
+            <li>Trademark Secured</li>
+            <li>*(Govt. filing fee not included)</li>
+          </ul>
+
+          <UiButtonsPrimary flexdisplay class="mt-6">Get Started</UiButtonsPrimary>
+        </div>
+
+        <div class="border border-accent-300 hover:border-secondary p-6 bg-white">
+          <UiTypographyP class="uppercase font-bold"><strong>Standard</strong></UiTypographyP>
+          <UiTypographyP small_text class="">Great for small businesses covering multiple product or service classes.</UiTypographyP>
+          <UiTypographyH2 color="secondary" class="mt-4">$149</UiTypographyH2>
+          <UiTypographyP>+ filing fee ($350/class)</UiTypographyP>
+
+          <ul class="list-inside list-disc h-44 overflow-y-scroll mt-6">
+            <li>Case Review</li>
+            <li>Case Filing</li>
+            <li>Direct Hit Search</li>
+            <li>Trademark Alerts</li>
+            <li>Trademark Secured</li>
+            <li>High Satisfaction Rate</li>
+            <li>Refusal Risk Meter</li>
+            <li>*(Govt. filing fee not included)</li>
+          </ul>
+
+          <UiButtonsPrimary flexdisplay class="mt-6">Get Started</UiButtonsPrimary>
+        </div>
+
+        <div class="border border-accent-300 hover:border-secondary p-6 bg-white">
+          <UiTypographyP class="uppercase font-bold"><strong>Deluxe</strong></UiTypographyP>
+          <UiTypographyP small_text class="">For brands needing extra support, including help with USPTO office actions.</UiTypographyP>
+          <UiTypographyH2 color="secondary" class="mt-4">$299</UiTypographyH2>
+          <UiTypographyP>+ filing fee ($350/class)</UiTypographyP>
+
+          <ul class="list-inside list-disc h-44 overflow-y-scroll mt-6">
+            <li>Case Review</li>
+            <li>Case Filing</li>
+            <li>Direct Hit Search</li>
+            <li>Trademark Alerts</li>
+            <li>Trademark Secured</li>
+            <li>High Satisfaction Rate</li>
+            <li>Refusal Risk Meter</li>
+            <li>Trademark Monitoring</li>
+            <li>Complete Documentation</li>
+            <li>Digital File</li>
+            <li>Dedicated Case Manager</li>
+            <li>*(Govt. filing fee not included)</li>
+          </ul>
+
+          <UiButtonsPrimary flexdisplay class="mt-6">Get Started</UiButtonsPrimary>
+        </div>
+
+        <div class="border border-accent-300 hover:border-secondary p-6 bg-white">
+          <UiTypographyP class="uppercase font-bold"><strong>Platinum</strong></UiTypographyP>
+          <UiTypographyP small_text class="">All-inclusive plan with monitoring, renewals, and full legal assistance.</UiTypographyP>
+          <UiTypographyH2 color="secondary" class="mt-4">$299</UiTypographyH2>
+          <UiTypographyP>+ filing fee ($350/class)</UiTypographyP>
+
+          <ul class="list-inside list-disc h-44 overflow-y-scroll mt-6">
+            <li>Case Review</li>
+            <li>Case Filing</li>
+            <li>Direct Hit Search</li>
+            <li>Trademark Alerts</li>
+            <li>Trademark Secured</li>
+            <li>High Satisfaction Rate</li>
+            <li>Refusal Risk Meter</li>
+            <li>Trademark Monitoring</li>
+            <li>Complete Documentation</li>
+            <li>Digital File</li>
+            <li>Dedicated Case Manager</li>
+            <li>High Approval Rate</li>
+            <li>Comprehensive Trademark Search Report (Federal & State)</li>
+            <li>High Priority Service</li>
+            <li>cease & desist letter</li>
+            <li>*(Govt. filing fee not included)</li>
+          </ul>
+
+          <UiButtonsPrimary flexdisplay class="mt-6">Get Started</UiButtonsPrimary>
+        </div>
+
+      </div>
+    </Container>
+  </section>
+
+  <Container>
+      <UiTypographyP class="flex items-center justify-center gap-2 mb-2">
+        <span class="h-0.5 w-10 bg-primary"></span>
+        Testimonials
+      </UiTypographyP> 
+      <UiTypographyH2 class="text-center mx-auto">
+        Happy Users Say About Us
+      </UiTypographyH2>
+
+      
+  </Container>
 </template>
 
 <script setup>
