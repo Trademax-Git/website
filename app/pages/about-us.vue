@@ -73,23 +73,30 @@
         <section class=" bg-gray-100/50 reason-choose-us ">
             <Container>
                 <div class="  lg:flex gap-5 ">
-                    <div class=" hidden lg:flex">
-                        <img src="@/assets/images/three-steps-your-brand.png" alt="Simple Process Steps" srcset="">
+                    <div class=" hidden  w lg:flex">
+                        <img src="@/assets/images/three-steps-your-brand.png" class="" alt="Simple Process Steps" srcset="">
                     </div>
 
                     <div class=" lg:w-1/2 w-full space-y-5 r">
-                        <UiTypographyP class=" "> <span class=" bg-accent-200 e px-2 py-1 font-bold">Simple Process
-                                Steps</span></UiTypographyP>
-                        <UiTypographyH2> <span class=" sm:text-5xl text-3xl leading-snug font-extrabold">Three Steps
-                                Your Brand’s
-                                Identity Trademark Registration</span>
+                        <UiTypographyP class="">
+                            <span class="bg-accent-200 px-2 py-1 font-bold">Simple Process Steps</span>
+                        </UiTypographyP>
+
+                        <UiTypographyH2>
+                            <span class="sm:text-5xl text-3xl leading-snug font-extrabold">
+                                Three Steps to Register Your Brand’s Trademark
+                            </span>
                         </UiTypographyH2>
-                        <UiTypographyP>Getting your trademark registered has never been easier. At Trademark Legal
-                            Shield, we’ve developed a seamless and efficient three-step process designed to eliminate
-                            confusion, reduce delays, and save you valuable time. Whether you're launching a startup,
-                            managing a growing business, or representing an established brand, our experienced trademark
-                            professionals ensure every detail of your application is managed with accuracy, compliance,
-                            and care</UiTypographyP>
+
+                        <UiTypographyP>
+                            Registering your trademark is now more straightforward than ever.
+                            At Trademax, we’ve created a smooth and efficient three-step
+                            process that minimizes confusion, avoids unnecessary delays, and saves you time.
+                            Whether you're a startup founder, a growing business owner, or managing an established
+                            brand, our skilled trademark experts handle every part of your application with precision,
+                            compliance, and care.
+                        </UiTypographyP>
+
                         <div
                             class="relative mt-4 space-y-6  flex flex-col   before:content-['']  before:block before:absolute before:inset-0   before:-z-10   before:top-0  before:left-5  before:sm:left-7  before:w-1   before:h-4/5   before:bg-gray-600">
 
@@ -125,28 +132,24 @@
                     <div class=" lg:w-1/2 w-full space-y-5 r">
                         <UiTypographyP class=" "> <span class=" bg-accent-200 e px-2 py-1 font-bold">Protect Your
                                 Brand</span></UiTypographyP>
-                        <UiTypographyH2> <span class=" sm:text-5xl text-3xl leading-snug font-extrabold">Secure Your
-                                Brand Identity Today</span>
+                        <UiTypographyH2> <span class=" sm:text-5xl text-3xl leading-snug font-extrabold">  Safeguard Your Brand Identity Today</span>
                         </UiTypographyH2>
-                        <UiTypographyP>Protecting your brand is essential in today’s competitive market, and trademark
-                            registration is the best way to secure your
-                            business identity. A registered trademark gives you exclusive legal rights to use your brand
-                            name, logo, or slogan, preventing others
-                            from copying or misusing your intellectual property. <br> <br>
+                        <UiTypographyP>
+                            In today’s competitive marketplace, securing your brand is more important than ever.
+                            Registering your trademark is the most effective way to protect your business identity. It
+                            grants you exclusive legal rights to your brand name, logo, or slogan, ensuring others
+                            cannot misuse or imitate your intellectual property. <br><br>
 
-                            At Trademark Legal Shield, we simplify the complex registration process by handling
-                            everything
-                            from conducting thorough trademark searches to preparing and filing your application with
-                            the
-                            United States Patent and Trademark Office (USPTO). <br> <br>
+                            At Trademax, we streamline the entire registration process for you. Our team
+                            manages every step—from conducting detailed trademark searches to preparing and filing your
+                            application with the United States Patent and Trademark Office (USPTO). <br><br>
 
-                            Our experienced team ensures your trademark application meets all legal
-                            requirements, minimizing delays and increasing your chances of approval.
-                            With our transparent pricing and personalized support, you’ll have peace of mind knowing
-                            your brand is fully protected nationwide. Whether you’re a startup or an established
-                            company, Trademark Legal Shield is your trusted partner in safeguarding the unique identity
-                            that sets your business apart.
-                            and care</UiTypographyP>
+                            With our knowledgeable experts, your application is handled with precision and compliance,
+                            reducing delays and improving your chances of approval. Our transparent pricing and
+                            dedicated support give you the confidence that your brand is protected nationwide. Whether
+                            you’re a new business or an established company, Trademark Legal Shield is committed to
+                            preserving the unique identity that makes your brand stand out.
+                        </UiTypographyP>
                         <div class="pt-4 sm:flex block sm:space-y-0  space-y-4 sm:space-x-4">
                             <UiButtonsPrimary @click="openform"><span>Register My Trademark</span></UiButtonsPrimary>
                             <UiButtonsSecondary @click=""><span>Live Chat</span></UiButtonsSecondary>
@@ -246,20 +249,20 @@
                         <UiTypographyP>Trusted by businesses nationwide for reliable trademark protection.
                         </UiTypographyP>
                         <div class="pt-4 bg-gray-100 0  sm:flex block sm:space-y-0  space-y-4 sm:space-x-4">
-                          <Carousel />
+                            <Carousel />
                         </div>
 
 
 
                     </div>
                     <div class=" hidden lg:flex">
-                        <img src="@/assets/images/testimonials-img.png" alt="secure your brands" srcset="">
+                        <img src="@/assets/images/feedback-image.jpg" alt="secure your brands" srcset="">
                     </div>
                 </div>
             </Container>
         </section>
 
-        
+
 
 
 
@@ -281,25 +284,25 @@ const reasonChooseUsList = ref([
     {
         id: 1,
         title: 'Expert Guidance',
-        description: 'Our team of trademark specialists brings years of experience to every application, ensuring your trademark',
+        description: 'Our skilled trademark professionals provide informed, precise support throughout the entire application process.',
         image: 'expert-icon.png'
     },
     {
         id: 2,
-        title: 'Comprehensive Services',
-        description: 'We provide end-to-end support including detailed trademark searches, application preparation, monitoring, and renewal management to protect your brand long-term.',
+        title: 'Comprehensive Solutions',
+        description: 'We deliver complete trademark services — from detailed searches and application drafting to ongoing monitoring and renewals.',
         image: 'comprise-icon.png'
     },
     {
         id: 3,
-        title: 'Affordable Pricing',
-        description: 'Our transparent pricing plans are designed to fit budgets of startups and established businesses alike, with no hidden fees, so you get premium service at a fair cost.',
+        title: 'Transparent & Affordable Pricing',
+        description: 'Our pricing structure is clear, competitive, and designed to offer premium service without unexpected costs.',
         image: 'affordable-icon.png'
     },
     {
         id: 4,
-        title: 'Dedicated Support',
-        description: 'Our transparent pricing plans are designed to fit budgets of startups and established businesses alike, with no hidden fees, so you get premium service at a fair cost.',
+        title: 'Dedicated Client Support',
+        description: 'Our support team is committed to providing timely, reliable assistance at every stage of your trademark journey.',
         image: 'dedicated-icon.png'
     }
 ])
@@ -309,21 +312,22 @@ const reasonChooseUsList = ref([
 
 
 
+
 const stepToTakeList = ref([
     {
         id: 1,
-        title: 'Submit Your Details',
-        description: 'Provide us with your brand name, logo, and basic business information through our secure online form.',
+        title: 'Send Us Your Info',
+        description: 'Share your business name, logo, and basic details using our secure online form.',
     },
     {
         id: 2,
-        title: 'We Handle the Filing',
-        description: 'Our experts conduct a trademark search, prepare your application, and file it with the USPTO — accurately and efficiently.',
+        title: 'We Do the Filing for You',
+        description: 'Our team checks for similar trademarks, prepares your application, and files it with the USPTO.',
     },
     {
         id: 3,
-        title: 'Get Official Protection',
-        description: 'Once approved, your trademark is officially registered, giving you exclusive legal rights and nationwide brand protection.',
+        title: 'Receive Your Trademark',
+        description: 'After approval, your trademark gets officially registered and protected across the country.',
         image: 'ongoing-icon.png'
     }
 ])
@@ -331,26 +335,26 @@ const stepToTakeList = ref([
 const faqList = ref([
     {
         id: 1,
-        title: 'Q1: What is a trademark and why do I need one?',
-        description: 'A trademark protects your brand’s name, logo, or slogan from being used by others. It helps secure your business identity and builds trust with your customers.',
+        title: 'Q1: What is a trademark, and why is it important?',
+        description: 'A trademark protects your brand name, logo, or slogan from unauthorized use. It secures your business identity and strengthens customer trust.',
         showdescription: false
     },
     {
         id: 2,
-        title: 'Q2: Can I register a trademark for multiple classes?',
-        description: 'Yes, trademarks can be registered for multiple classes. Our Standard, Deluxe, and Platinum plans accommodate multiple classes with added services.',
+        title: 'Q2: Can I register a trademark in multiple classes?',
+        description: 'Yes. You can file a trademark across multiple classes. Our Standard, Deluxe, and Platinum plans support multi-class applications with additional services.',
         showdescription: false
     },
     {
         id: 3,
-        title: ' Q3: Do you handle the entire trademark registration process?',
-        description: 'Yes! We manage everything from conducting a trademark search to filing the application and responding to USPTO communications.',
+        title: 'Q3: Do you handle the full trademark registration process?',
+        description: 'Absolutely. We take care of everything — from conducting a trademark search to filing your application and managing all USPTO correspondence.',
         showdescription: false
     },
     {
         id: 4,
-        title: '  Q4: What are USPTO fees, and are they included in your prices?',
-        description: 'USPTO filing fees are government fees charged by the United States Patent and Trademark Office and vary by trademark class. Our service prices exclude these fees, which you pay directly to the USPTO.',
+        title: 'Q4: What are USPTO fees, and are they included in your pricing?',
+        description: 'USPTO filing fees are government charges set by the United States Patent and Trademark Office and vary by class. These fees are not included in our service pricing and are paid directly to the USPTO.',
         showdescription: false
     }
 ])

@@ -71,7 +71,7 @@
                                     </UiTypographyH3>
                                     <UiTypographyP>
                                         <span class="  text-center font-bold">
-                                            info@trademarklegalshield.com
+                                            trademaxproject@gmail.com
                                         </span>
                                     </UiTypographyP>
                                 </div>

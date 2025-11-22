@@ -86,22 +86,38 @@
 
 <script setup>
 import { ref } from 'vue';
-
 const reviewsList = ref([
   {
-    text: "Working with Trademark Legal Shield was a fantastic experience. As a new business owner, I was unsure about the trademark process, but their team guided me through every step with patience and professionalism. Thanks to their expertise, my brand is now fully protected.",
+    text: "My experience with Trademax was outstanding. As a first-time business owner, I wasn’t familiar with the trademark process, but their team walked me through everything with clarity and professionalism. Because of their support, my brand is now properly secured.",
     name: "Sam Martinez",
     rating: 4.9
   },
   {
-    text: "Trademark Legal Shield’s Platinum package exceeded my expectations. Beyond just filing the trademark, they provided continuous monitoring and renewal reminders that helped me avoid any lapses. Their personalized support and legal advice gave me peace of mind knowing my intellectual property is in good hands. Their professionalism and dedication make them stand out in the trademark services industry.",
+    text: "The Trademax Platinum package truly impressed me. They didn’t just file my trademark—they also handled ongoing monitoring and provided renewal reminders to keep everything on track. Their personalized guidance and legal insight gave me complete confidence that my intellectual property was well protected.",
     name: "Jessica Lee",
     rating: 5
   },
   {
-    text: "I chose Trademark Legal Shield because of their reputation for reliable and efficient service, and they did not disappoint. The staff was incredibly knowledgeable and took the time to explain the nuances of trademark registration. Their response to a USPTO office action on my behalf was prompt and effective, which made all the difference in getting my trademark approved without delays. I highly recommend Trademark Legal Shield to anyone serious about protecting their brand.",
+    text: "I went with Trademax because of their strong reputation for dependable service, and they definitely lived up to it. Their team was knowledgeable, patient, and made the trademark process easy to understand. Their quick and effective response to a USPTO office action helped my application get approved without delays.",
     name: "Michael Brown",
     rating: 4.5
+  },
+
+  // NEW REVIEWS
+  {
+    text: "Trademax provided exceptional service from start to finish. They carefully reviewed my documents and made sure everything met USPTO standards. Their communication was always clear and timely, making the entire process stress-free.",
+    name: "Ava Thompson",
+    rating: 4.8
+  },
+  {
+    text: "I was impressed by how thorough and organized the Trademax team was. They conducted a detailed search for potential conflicts before filing and kept me updated throughout the process. Their professionalism gave me full confidence in my trademark protection.",
+    name: "Daniel Carter",
+    rating: 5
+  },
+  {
+    text: "From the moment I contacted Trademax, I felt supported. They simplified the legal steps and ensured I understood what to expect. Their guidance helped my trademark get approved smoothly. I highly recommend their services to any business owner.",
+    name: "Emily Johnson",
+    rating: 4.7
   }
 ]);
 
