@@ -2,7 +2,6 @@
   <nav class="fixed z-100 w-full top-0 left-0 border-b border-accent-200 bg-white">
     <Container :addTopBottomPadding="false" class="flex items-center justify-between py-4">
      <Trademarkform ref="trademarkformFunctions" />
-    <div class="max-w-7xl 2xl:max-w-8xl mx-auto px-4 sm:px-6 flex items-center justify-between py-4">
       <!-- Logo -->
       <NavigationLogo @logoClicked="handleLogoClick" />
 
