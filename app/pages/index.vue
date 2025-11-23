@@ -26,10 +26,10 @@
 
   <Container class="grid lg:grid-cols-2 gap-12 lg:gap-28 items-start">
     <div>
-      <UiTypographyP class="flex items-center gap-2 mb-2">
-        <span class="h-0.5 w-10 bg-primary"></span>
-        What We Do
-      </UiTypographyP>
+      <UiTypographyP small_text class="flex items-center gap-2 mb-2 uppercase">
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
+        What we do
+      </UiTypographyP> 
       <UiTypographyH2 class="" color="primary">
         Expert Trademark Protection Backed by Trusted Legal Professionals
       </UiTypographyH2>
@@ -59,9 +59,10 @@
   </Container>
 
   <Container class="text-center">
-      <UiTypographyP class="flex items-center justify-center gap-2 mb-2">
-        <span class="h-0.5 w-10 bg-primary"></span>
-        How it works
+      <UiTypographyP small_text class="flex items-center justify-center gap-2 mb-2 uppercase">
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
+        How it Works
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
       </UiTypographyP>    
       <UiTypographyH2 class="max-w-2xl mx-auto">
         A Streamlined, Attorney-Managed Trademark Process
@@ -93,9 +94,10 @@
 
   <section class="bg-accent-100 bg-opacity-40">
     <Container>
-      <UiTypographyP class="flex items-center justify-center gap-2 mb-2">
-        <span class="h-0.5 w-10 bg-primary"></span>
+      <UiTypographyP small_text class="flex items-center justify-center gap-2 mb-2 uppercase">
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
         Our Pricing
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
       </UiTypographyP>   
       <UiTypographyH2 class="text-center mx-auto">Simple, Transparent Pricing</UiTypographyH2> 
 
@@ -196,9 +198,10 @@
   </section>
 
   <Container>
-      <UiTypographyP class="flex items-center justify-center gap-2 mb-2">
-        <span class="h-0.5 w-10 bg-primary"></span>
+      <UiTypographyP small_text class="flex items-center justify-center gap-2 mb-2 uppercase">
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
         Testimonials
+        <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
       </UiTypographyP> 
       <UiTypographyH2 class="text-center mx-auto">
         Happy Users Say About Us
@@ -209,6 +212,10 @@
           <Testimonials class="lg:max-w-2xl"></Testimonials>
         <img src="/images/quote-right.svg" class="w-40 opacity-10" alt="">
       </div>
+  </Container>
+
+  <Container>
+
   </Container>
 </template>
 
