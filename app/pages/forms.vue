@@ -227,15 +227,12 @@
                 </UiTypographyP>
 
                 <UiTypographyP class=" text-center te">
-                  We have received all your details and our case filing experts are currently reviewing your trademark
-                  application. Please note that we have not yet charged your application fee. You will recieve
-                  confirmation call by the assigned case filing officer within 12 hours, after which we will charge the
-                  trademark application fee and initiate your trademark registration process.
+               We have received all your information, and our case filing experts are currently reviewing your trademark application. Please note that your application fee has not been charged yet. A case officer will contact you within 12 hours to confirm the details, after which the fee will be processed.
                 </UiTypographyP>
 
                 <UiTypographyP class="text-center text-gray-300 p-6">
                   Should you have any query, please feel free to reach us at +1 (415) 579 1344 or
-                  info@trademarklegalshield.com.
+                 trademaxproject@gmail.com
                 </UiTypographyP>
               </div>
 
