@@ -214,7 +214,7 @@
       </div>
   </Container>
 
-  <section class="bg-neutral-100">
+  <section class="bg-neutral-100" id="faqs">
     <Container>
         <UiTypographyP small_text class="flex items-center justify-center gap-2 mb-2 uppercase">
           <span class="h-1 aspect-square rounded-full bg-secondary" v-for="i in 2"></span>
@@ -309,6 +309,17 @@
     </Container>
   </section>
 
+  <section class="cta">
+    <Container class="text-center">
+      <UiTypographyH2 color="white">Don't Risk Your Brand's Future!</UiTypographyH2>
+      <UiTypographyP color="white" class="max-w-2xl mx-auto">Unregistered trademarks can lead to costly legal battles. Protect your brand with {{projectName}}'s expert services—fast, reliable, and hassle-free. Secure your exclusive rights now before it's too late!</UiTypographyP>
+
+      <div class="mt-16 flex gap-8 justify-center">
+        <UiButtonsPrimary class="hover:bg-white hover:text-secondary">Register My Trademark</UiButtonsPrimary>
+        <UiButtonsSecondary class="hover:text-white hover:border-white">Get in touch</UiButtonsSecondary>
+      </div>
+    </Container>
+  </section>
 </template>
 
 <script setup>
@@ -323,5 +334,13 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.cta {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/statue-of-liberty.jpg');
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
 }
 </style>
