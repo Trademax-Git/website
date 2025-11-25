@@ -3,7 +3,7 @@
     type="submit"
     :disabled="loading || disabled"
     :class="buttonClasses"
-    class="py-2 px-5 flex w-full text-white font-medium text-base 2xl:text-lg justify-center focus:bg-primary"
+    class="py-2 px-5 flex w-full text-white font-medium text-base 2xl:text-lg justify-center focus:bg-primary uppercase"
     :style="(loading || disabled) ? '' : 'transition: background-color 500ms ease-in-out;'"
   >
 
