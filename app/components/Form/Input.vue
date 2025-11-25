@@ -14,7 +14,7 @@
         @focus="!disabled && handleFocus()"
         @blur="!disabled && handleBlur()"
         :class="[inputClasses, placeholder ? ' ' : 'placeholder-transparent', ]"
-        class="w-full py-3 px-4 border  outline-none ring-0 focus:outline-none rounded-md bg-white peer relative"
+        class="w-full py-3 px-4 border  outline-none ring-0 focus:outline-none bg-white peer relative"
         :style="disabled ? '' : 'transition: border-color 300ms ease-out, color 300ms ease-out;'"
         :placeholder="label ||  placeholderLabel"
       />
