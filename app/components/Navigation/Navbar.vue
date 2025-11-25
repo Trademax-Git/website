@@ -9,8 +9,8 @@
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex gap-8  flex-shrink-0">
-          <UiButtonsTertiary url="/#pricing">Pricing</UiButtonsTertiary>
-          <UiButtonsTertiary url="/#faqs">FAQs</UiButtonsTertiary>
+          <UiButtonsTertiary  @clicked="scrollToSection('pricing')">Pricing</UiButtonsTertiary>
+          <UiButtonsTertiary  @clicked="scrollToSection('faqs')">FAQs</UiButtonsTertiary>
           <UiButtonsPrimary @click="openform">Register my Trademark</UiButtonsPrimary>
         </div>
 
@@ -20,8 +20,8 @@
         <!-- Mobile Menu (rendered conditionally) -->
         <div v-if="menuRevealed"
           class="flex flex-col items-start gap-12 md:hidden absolute bg-white h-screen top-[4.6rem] left-0 px-6 py-10 w-full">
-          <UiButtonsTertiary url="/#pricing" style="font-size: 1.5rem;">Pricing</UiButtonsTertiary>
-          <UiButtonsTertiary url="/#faqs" style="font-size: 1.5rem;">FAQs</UiButtonsTertiary>
+          <UiButtonsTertiary  @clicked="scrollToSection('pricing')">Pricing</UiButtonsTertiary>
+          <UiButtonsTertiary  @clicked="scrollToSection('faqs')">FAQs</UiButtonsTertiary>
           <UiButtonsPrimary @click="openform">Register my Trademark</UiButtonsPrimary>
         </div>
       </Container>
@@ -58,6 +58,22 @@ const openform = () => {
   trademarkformFunctions.value.openForm()
 }
 
+const scrollToSection = async (sectionId) => {
+  // If not on home page, navigate to home first
+  if (router.currentRoute.value.path !== '/') {
+    await router.push('/')
+    // Wait for page to load, then scroll
+    await new Promise(resolve => setTimeout(resolve, 500))
+  }
+  
+  // Scroll to section
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+  
+  menuRevealed.value = false // Close mobile menu after clicking
+}
 
 function handleLogoClick() {
   emit('navigate', { path: '/', type: 'logo' })
