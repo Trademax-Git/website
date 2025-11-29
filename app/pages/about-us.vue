@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Trademarkform ref="trademarkformFunctions" />
         <!-- Hero section about us -->
         <section class=" hero bg-[url('/images/law.jpg')] bg-cover bg-no-repeat  ">
           <div class=" bg-black/70 pb-10 pt-20">
@@ -278,9 +277,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 //Refs
-const trademarkformFunctions = ref(null)
+const router = useRouter()
 
 
 //Data lists
@@ -366,9 +366,9 @@ const faqList = ref([
 
 
 
-//Functions 
+//Functions
 const openform = () => {
-    trademarkformFunctions.value.openForm()
+    router.push('/forms')
 }
 
 const openChat = ()=>{

@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Trademarkform ref="trademarkformFunctions" />
         <!-- Hero section contact us -->
         <section class=" bg-[url('/images/law.jpg')] bg-cover bg-no-repeat pb-10 pt-20 ">
             <Container>
@@ -18,7 +17,7 @@
                         questions, and ensure a smooth experience from start to finish.
                     </UiTypographyP>
                     <div class="pt-4 sm:flex block sm:space-y-0  space-y-4 sm:space-x-4">
-                        <UiButtonsPrimary @click="openform"><span>Register My Trademark</span></UiButtonsPrimary>
+                        <UiButtonsPrimary @click="router.push('/forms')"><span>Register My Trademark</span></UiButtonsPrimary>
                         <UiButtonsSecondary @click="openChat"  color="white"><span>Live Chat</span></UiButtonsSecondary>
                     </div>
 
@@ -124,7 +123,7 @@
                                 <FormInput v-model:inputValue="form.phone" label="Phone Number" :required="true" type="tel" name="phone" />
 
                                 <FormTextarea v-model:inputValue="form.message" label="Message" :required="true" name="message" />
-                                <UiButtonsPrimary @click="submit" :loading="false"  type="submit"><span>Susbmit</span></UiButtonsPrimary>
+                                <UiButtonsPrimary @click="submit" :loading="isLoading"  type="submit"><span>Submit</span></UiButtonsPrimary>
                             </form>
 
                         </div>
@@ -146,48 +145,36 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useFormStore } from '@/stores/formStore'
-const formStore = useFormStore()
-const form = formStore.form  
-const isLoading = ref(false)
-
-
 import { useRouter } from 'vue-router'
 
+const formStore = useFormStore()
+const form = formStore.form
+const isLoading = ref(false)
 const router = useRouter()
-
-const trademarkformFunctions = ref(null)
-
-
-// LOAD SAVED DATA WHEN PAGE OPENS
-
-
-
 
 // SAVE FORM ON SUBMIT
 const submit = async (e) => {
- 
-    
-e.preventDefault()
-setTimeout(()=>{
-  
-   router.push('/forms')
- isLoading.value = false
+  e.preventDefault()
 
-}, 500)
+  // Simple contact form: Save data and redirect to forms
+  formStore.setFormData({
+    fullname: form.value.fullname,
+    email: form.value.email,
+    phone: form.value.phone,
+    message: form.value.message
+  })
 
-
-} 
-
-const openChat = ()=>{
-     if (window.Tawk_API) {
-    window.Tawk_API.maximize();
-  }
+  setTimeout(() => {
+    router.push('/forms')
+    isLoading.value = false
+  }, 500)
 }
 
-// OPEN FORM FUNCTION
-const openform = () => {
-  trademarkformFunctions.value.openForm()
+const openChat = () => {
+  if (window.Tawk_API) {
+    window.Tawk_API.maximize();
+  }
 }
 </script>

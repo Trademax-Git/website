@@ -1,6 +1,5 @@
 <template>
   <div class=" bg-[#FEFEFE]">
-    <Trademarkform ref="trademarkformFunctions" />
     <!-- <UiTypographyH1 color="secondary" class="text-center pt-28 mb-1">United States</UiTypographyH1> -->
     <header class=" mt-0  h-[100vh] pt-1">
       <Container :addTopBottomPadding="false" class="  text-white h-full flex  items-center">
@@ -458,17 +457,17 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
 const config = useRuntimeConfig()
 const projectName = config.public.projectName
-const trademarkformFunctions = ref(null)
-import { ref } from 'vue'
-
+const router = useRouter()
 
 const openChat = () => {
 
 }
 const openform = () => {
-  trademarkformFunctions.value.openForm()
+  router.push('/forms')
 }
 </script>
 
