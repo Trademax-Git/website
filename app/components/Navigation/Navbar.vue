@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Trademarkform ref="trademarkformFunctions" />
     <nav class="fixed z-90 w-full top-0 left-0 border-b border-accent-200 bg-white">
       <Container :addTopBottomPadding="false" class="flex items-center justify-between py-4">
 
@@ -36,9 +35,8 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-const trademarkformFunctions = ref(null)
 
 // Props with validation - only UI-related props remain
 const props = defineProps({
@@ -60,7 +58,7 @@ function toggleMenu() {
 }
 
 const openform = () => {
-  trademarkformFunctions.value.openForm()
+  router.push('/forms')
 }
 
 const scrollToSection = async (sectionId) => {

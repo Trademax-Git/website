@@ -2,41 +2,63 @@
   <div>
     <section class="my-10">
       <Container class=" flex justify-center items-center">
-        <!-- fist form -->
-        <Transition
-          appear
-          enter-active-class="duration-500 ease-in-out"
-          enter-from-class="translate-x-0"
-          enter-to-class="translate-x-0"
-          leave-active-class="duration-500 ease-in-out"
-          leave-from-class="translate-x-0"
-          leave-to-class="-translate-x-[200rem]"
-          @after-leave="onFirstFormLeave"
-        >
-          <div v-if="first_form" class="lg:w-2/3 md:w-[90%]">
-            <div class="space-y-4 md:space-x-10">
-              <div class="text-center">
-              <div class="py-2">
-                <UiTypographyH2>
-                  <span class="font-bold">Step 2</span>
-                </UiTypographyH2>
+
+        <!-- Show thank you page after submission -->
+        <div v-if="showThankYou" class="lg:w-2/3 md:w-[90%] w-full">
+          <div class="w-full overflow-hidden shadow-xl border rounded-lg">
+            <div class="bg-primary text-center py-8 px-4">
+              <div class="flex justify-center mb-4">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                  <span class="text-primary text-4xl">✓</span>
+                </div>
               </div>
-              <UiTypographyH3>Trademark Details</UiTypographyH3>
+              <UiTypographyH2 class="text-white font-bold">Thank You!</UiTypographyH2>
+            </div>
+            <div class="px-8 py-10 text-center">
+              <UiTypographyP class="text-lg text-gray-700 mb-4">
+                We have received your trademark registration submission.
+              </UiTypographyP>
+              <UiTypographyP class="text-gray-600">
+                Our team will review your application and contact you shortly.
+              </UiTypographyP>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progressive disclosure form -->
+        <div v-else class="lg:w-2/3 md:w-[90%] w-full space-y-6">
+
+          <!-- Header -->
+          <div class="text-center">
+            <UiTypographyH2>
+              <span class="font-bold">Trademark Registration Form</span>
+            </UiTypographyH2>
+            <UiTypographyP class="text-gray-600 mt-2">Complete both sections to submit your application</UiTypographyP>
+          </div>
+
+          <!-- Section 1: Trademark Details -->
+          <div class="w-full shadow-xl border" :class="section1Complete ? 'bg-gray-50' : 'bg-white'">
+            <!-- Section 1 Header -->
+            <div
+              class="bg-gray-100 border-l-4 py-4 px-4 border-l-accent-600 flex justify-between items-center cursor-pointer"
+              @click="toggleSection1"
+            >
+              <div class="flex items-center gap-3">
+                <span v-if="section1Complete" class="text-green-600 text-2xl">✓</span>
+                <UiTypographygitP>
+                  <span class="font-bold">Section 1: Trademark Details</span>
+                </UiTypographygitP>
+              </div>
+              <span v-if="section1Complete" class="text-sm text-gray-600">Click to edit</span>
             </div>
 
-            <div class="w-full shadow-xl py-5 border">
-              <div class="space-y-3">
-                <UiTypographyH3 class="text-center">
-                  <span class="font-bold">Fill out this brief form. It takes less than 60 seconds!</span>
-                </UiTypographyH3>
+            <!-- Section 1 Content (collapsible) -->
+            <div v-show="!section1Complete || section1Expanded" class="space-y-3 py-5">
+              <UiTypographyH3 class="text-center px-4">
+                <span class="font-bold">Fill out this brief form. It takes less than 60 seconds!</span>
+              </UiTypographyH3>
 
-                <div class="bg-gray-100 border-l-4 py-4 px-4 border-l-accent-600">
-                  <UiTypographyP>
-                    <span class="font-bold">Trademark Details</span>
-                  </UiTypographyP>
-                </div>
-
-                <form @submit.prevent="first_submit" ref="formRef" class="md:px-4 px-2 md:pt-4 pt-2 space-y-7">
+              <form @submit.prevent="completeSection1" ref="formRef" class="md:px-4 px-2 md:pt-4 pt-2 space-y-7">
 
                   <!-- Trademark Type -->
                   <div>
@@ -50,44 +72,52 @@
 
 
                   <!-- for logo and name -->
-                  <div class=" flex  gap-6 justify-center items-center">
+                  <div class="flex flex-col md:flex-row gap-6 items-center">
 
                     <!-- Logo Upload -->
-                    <div v-if="form.logo" :required="form.logo" class="flex items-center gap-2 py-3">
+                    <div v-if="form.logo" :required="form.logo" class="flex flex-col">
+                      <label class="text-sm font-medium text-gray-700 mb-3">Upload Logo</label>
 
                       <div
-                        class="w-40 h-40 border  flex flex-col items-center justify-center bg-secondary duration-500 ease-in-out hover:primary cursor-pointer overflow-hidden"
+                        class="relative w-48 h-48 border-2 border-dashed rounded-lg flex flex-col items-center justify-center bg-gray-50 hover:bg-gray-100 duration-300 ease-in-out cursor-pointer overflow-hidden group"
+                        :class="logoPreview ? 'border-primary' : 'border-gray-300'"
                         @click="triggerFileInput">
-                        <div v-if="!logoPreview" class="text-white">
-                            <UiIconsCamera class="w-20 mx-auto" />
-                            <UiTypographyP class="mt-2 text-xs">Tap to Upload Logo Mark</UiTypographyP>
+
+                        <!-- Upload prompt -->
+                        <div v-if="!logoPreview" class="text-center px-4">
+                          <UiIconsCamera class="w-16 mx-auto text-gray-400 group-hover:text-primary transition-colors" />
                         </div>
 
-                        <!-- AFTER UPLOAD = SHOW IMAGE PREVIEW -->
-                        <img v-else :src="logoPreview" class="w-full h-full object-cover" />
+                        <!-- Image preview with overlay -->
+                        <div v-else class="relative w-full h-full">
+                          <img :src="logoPreview" class="w-full h-full object-contain p-2" />
+                          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                            <UiTypographyP class="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">
+                              Click to change
+                            </UiTypographyP>
+                          </div>
+                        </div>
                       </div>
 
                       <!-- HIDDEN FILE INPUT -->
                       <input ref="hiddenFile" type="file" class="hidden" accept="image/*" @change="handleLogoUpload" />
-
                     </div>
 
-                    <!-- Mark Name -->
-                    <div v-if="form.name" class=" w-full">
+                    <!-- Name and Slogan -->
+                    <div class="w-full space-y-7">
+                    <div v-if="form.name" class="w-full">
                       <FormInput :required="form.markname" v-model:inputValue="form.relname" label="Enter Mark Here"
                         type="text" name="markName" />
                     </div>
 
-
-                  </div>
-
-                  <!-- Slogan -->
-                  <div class="" v-if="form.slogan">
-                    <FormInput v-model:inputValue="form.slogan_name" :required="form.slogan" label="Enter Slogan Here"
+                    <div class="" v-if="form.slogan">
+                      <FormInput v-model:inputValue="form.slogan_name" :required="form.slogan" label="Enter Slogan Here"
                       type="text" name="slogan" />
+                    </div>
+                    </div>
+
 
                   </div>
-
                   <!-- Trademark Category -->
                   <FormSelect v-model:selectedOption="form.trademarkCategory" :required="true"
                     label="Please select the entity type that is applying for the trademark:" :options="[
@@ -113,101 +143,82 @@
                   <FormTextarea v-model:inputValue="form.business_description" :required="true"
                     label="Business Description:" name="businessDescription" />
 
-                  <!-- Submit Button -->
-                  <FormButton :loading="isLoading" type="submit">Submit</FormButton>
+                  <!-- Submit Button for Section 1 -->
+                  <FormButton :loading="isLoadingSection1" type="submit">Continue to Contact Information</FormButton>
                 </form>
-
-              </div>
-            </div>
             </div>
           </div>
-        </Transition>
 
-        <!-- thanks Template  -->
-        <Transition
-          appear
-          enter-active-class="duration-500 ease-in-out"
-          enter-from-class="translate-x-[200rem]"
-          enter-to-class="translate-x-0"
-          leave-active-class="duration-500 ease-in-out"
-          leave-from-class="translate-x-0"
-          leave-to-class="-translate-x-[200rem]"
-        >
-          <div v-if="thank_page" class="md:w-[90%] w-full space-y-4 md:space-x-10">
-            <div class="w-full overflow-hidden l shadow-xl  border ">
-            <div class="">
-              <div class="  bg-primary  text-center py-4 px-4 ">
-                <UiTypographyH3 class=" text-white font-bold">Thank You </UiTypographyH3>
-              </div>
-              <div class=" px-4">
-                <UiTypographyP class="text-center text-gray-300 p-6">
-                  You have successfully submitted application for your trademark registration!
-                </UiTypographyP>
-
-                <UiTypographyP class=" text-center te">
-               We have received all your information, and our case filing experts are currently reviewing your trademark application. Please note that your application fee has not been charged yet. A case officer will contact you within 12 hours to confirm the details, after which the fee will be processed.
-                </UiTypographyP>
-
-                <UiTypographyP class="text-center text-gray-300 p-6">
-                  Should you have any query, please feel free to reach us at +1 (415) 579 1344 or
-                 trademaxproject@gmail.com
+          <!-- Section 2: Contact Information -->
+          <div class="w-full shadow-xl border" :class="!section1Complete ? 'opacity-50 pointer-events-none' : 'bg-white'">
+            <!-- Section 2 Header -->
+            <div class="bg-gray-100 border-l-4 py-4 px-4 border-l-accent-600 flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <UiTypographyP>
+                  <span class="font-bold">Section 2: Contact Information</span>
                 </UiTypographyP>
               </div>
+              <span v-if="!section1Complete" class="text-sm text-gray-500">Complete Section 1 to continue</span>
             </div>
+
+            <!-- Section 2 Content -->
+            <div v-if="section1Complete" class="space-y-3 py-5">
+              <UiTypographyH3 class="text-center px-4">
+                <span class="font-bold">Almost done! Please provide your contact details</span>
+              </UiTypographyH3>
+
+              <form @submit.prevent="submitFinalForm" class="md:px-4 px-2 md:pt-4 pt-2 space-y-7">
+                <FormInput v-model:inputValue="contactForm.fullname" label="Full Name" type="text" :required="true" name="fullname" />
+                <FormInput v-model:inputValue="contactForm.email" label="Email Address" type="email" :required="true" name="email" />
+                <FormInput v-model:inputValue="contactForm.phone" label="Phone Number" type="tel" :required="true" name="phone" />
+                <FormTextarea v-model:inputValue="contactForm.message" label="Message (Optional)" :required="false" name="message" />
+
+                <!-- Final Submit Button -->
+                <FormButton :loading="isLoadingFinal" type="submit">Submit Application</FormButton>
+              </form>
             </div>
           </div>
-        </Transition>
+
+        </div>
       </Container>
     </section>
   </div>
 </template>
 <script setup>
-import { ref, watch, onMounted, nextTick } from "vue";
-import { useFormStore } from "@/stores/formStore";
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const formRef = ref(null);
-import emailjs from "@emailjs/browser";
-// Pinia store
-const formStore = useFormStore();
-const personal_details = formStore.form;
-// Form states
-const first_form = ref(true);
-const thank_page = ref(false);
-const isLoading = ref(false);
+import { ref, watch } from "vue";
+import emailjs from '@emailjs/browser';
 
-// Main form object
+const formRef = ref(null);
+
+// Section states
+const section1Complete = ref(false);
+const section1Expanded = ref(false);
+const showThankYou = ref(false);
+const isLoadingSection1 = ref(false);
+const isLoadingFinal = ref(false);
+
+// Section 1: Trademark Details form
 const form = ref({
   name: false,
   markname: '',
-  phone_number: "",
-  email: "",
-  message: "",
   logo: true,
   logofil: null,
   slogan: false,
   slogan_name: "",
   relname: "",
-  business_type: "",
   business_name: "",
   business_industry: "",
   business_description: "",
   trademarkCategory: "",
-  full_name: "",
-  last_name: "",
-  address: "",
-  country: "",
-  state: "",
-  city: "",
-  zip: "",
 });
 
-
-// Pre-populate form with store data
-form.value.email = personal_details.email;
-form.value.phone_number = personal_details.phone;
-form.value.message = personal_details.message
-
+// Section 2: Contact Information form
+const contactForm = ref({
+  fullname: "",
+  email: "",
+  phone: "",
+  message: "",
+});
 
 // File input refs
 const hiddenFile = ref(null);
@@ -237,91 +248,48 @@ watch(
   }
 );
 
-// FIRST FORM SUBMIT
-const first_submit = async () => {
-  isLoading.value = true;
+// Toggle Section 1 expansion (when complete)
+const toggleSection1 = () => {
+  if (section1Complete.value) {
+    section1Expanded.value = !section1Expanded.value;
+  }
+};
+
+// Complete Section 1 and move to Section 2
+const completeSection1 = async () => {
+  isLoadingSection1.value = true;
 
   // Validate form
   if (!form.value.name && !form.value.logo && !form.value.slogan) {
     alert("Please select at least one: Name, Logo or Slogan.");
-    isLoading.value = false;
+    isLoadingSection1.value = false;
     return;
   }
 
   if (form.value.logo && form.value.logofil === null) {
     alert("Please upload a logo file.");
-    isLoading.value = false;
+    isLoadingSection1.value = false;
     return;
   }
 
   if (!form.value.trademarkCategory) {
     alert("Please select a trademark category.");
-    isLoading.value = false;
+    isLoadingSection1.value = false;
     return;
   }
 
-  // Send email and transition to thank you page
-  try {
-    await sendEmailAsync();
-    first_form.value = false;
-    await nextTick();
-    thank_page.value = true;
-  } catch (err) {
-    console.log("FAILED...", err);
-    alert("Failed to submit form. Please try again.");
-  } finally {
-    isLoading.value = false;
-  }
+  // Mark section 1 as complete and collapse it
+  section1Complete.value = true;
+  section1Expanded.value = false;
+  isLoadingSection1.value = false;
+
+  // Scroll to Section 2
+  setTimeout(() => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }, 100);
 };
 
-// Callback after first form leaves
-const onFirstFormLeave = () => {
-  // Animation complete
-};
-
-
-
-// Make sendEmail async
-const sendEmailAsync = () => {
-  return new Promise((resolve, reject) => {
-    const data = {
-      fullname: personal_details.fullname,
-      email: form.value.email,
-      markname: form.value.markname,
-      phone_number: form.value.phone_number,
-      business_name: form.value.business_name,
-      business_description: form.value.business_description,
-      slogan_name: form.value.slogan_name,
-      business_type: form.value.business_type,
-      message: form.value.message,
-      trademarkCategory: form.value.trademarkCategory,
-      full_name: form.value.full_name,
-      address: form.value.address,
-      country: form.value.country,
-      state: form.value.state,
-      city: form.value.city,
-    };
-
-    // Send email to admin
-    emailjs
-      .send("service_t82t6hd", "template_7pr5mtt", data, {
-        publicKey: "xEftJyIuvEr9QtFsD",
-      })
-      .then(() => {
-        // Send confirmation email to user
-        return sendUserConfirmationEmail(form.value.email, personal_details.fullname);
-      })
-      .then(() => {
-        resolve();
-      })
-      .catch((err) => {
-        console.log("FAILED...", err);
-        reject(err);
-      });
-  });
-};
-
-// Send confirmation email to user
+// Send user confirmation email
 const sendUserConfirmationEmail = (userEmail, userName) => {
   return new Promise((resolve, reject) => {
     const confirmationData = {
@@ -338,21 +306,61 @@ const sendUserConfirmationEmail = (userEmail, userName) => {
         resolve();
       })
       .catch((err) => {
-        console.log("User confirmation email failed...", err);
+        console.log("Confirmation email failed:", err);
         // Don't reject here - the main submission was successful
         resolve();
       });
   });
 };
 
+// Submit final form (Section 2)
+const submitFinalForm = async () => {
+  isLoadingFinal.value = true;
 
-
-// ON MOUNT → Set email and phone from store
-onMounted(() => {
-  // Auth check - redirect if email or phone missing
-  if (!personal_details.email || !personal_details.phone) {
-    console.log('Missing email or phone, redirecting to contact-us');
-    router.push('./contact-us');
+  // Validate contact form
+  if (!contactForm.value.fullname || !contactForm.value.email || !contactForm.value.phone) {
+    alert("Please fill in all required fields.");
+    isLoadingFinal.value = false;
+    return;
   }
-});
+
+  try {
+    // Prepare data for brand email
+    const data = {
+      fullname: contactForm.value.fullname,
+      email: contactForm.value.email,
+      phone_number: contactForm.value.phone,
+      message: contactForm.value.message,
+      markname: form.value.relname,
+      slogan_name: form.value.slogan_name,
+      business_name: form.value.business_name,
+      business_industry: form.value.business_industry,
+      business_description: form.value.business_description,
+      trademarkCategory: form.value.trademarkCategory
+    };
+
+    // Send email to brand/admin
+    await emailjs.send("service_t82t6hd", "template_7pr5mtt", data, {
+      publicKey: "xEftJyIuvEr9QtFsD",
+    });
+
+    // Send confirmation email to user
+    await sendUserConfirmationEmail(contactForm.value.email, contactForm.value.fullname);
+
+    // Show thank you page
+    showThankYou.value = true;
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    console.log("FAILED...", err);
+    alert("Failed to submit form. Please try again.");
+  } finally {
+    isLoadingFinal.value = false;
+  }
+};
+
+
+
+
 </script>
